@@ -21,13 +21,15 @@ package com.company;
 public class LeetCode_2 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        System.out.println("");
-        return null;
-    }
+    
 
     public class ListNode {
         int val;
         ListNode next;
+
+        public ListNode(int newNode) {
+            this.val = newNode;
+        }
     }
 
 }
