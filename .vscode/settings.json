@@ -1,3 +1,6 @@
 {
-    "python.pythonPath": "C:\\Users\\10050365c\\AppData\\Local\\Programs\\Python\\Python37\\python.exe"
+    "python.pythonPath": "D:\\VisualStudio17\\Anaconda3_64\\python.exe",
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true
 }

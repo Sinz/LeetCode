@@ -1,10 +1,10 @@
-
 from timeit import Timer
-
-def test1():
+  
+def test1(): 
     l = []
     for i in range(1000):
         l += [i]
+        # l = l + [i] 处理效率很低，需要生成一个新的列表
 def test2():
     l = []
     for i in range(1000):
