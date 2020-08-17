@@ -16,8 +16,15 @@ def quick_sort(array,low,high):
         quick_sort(array,low,key_index)
         quick_sort(array,key_index+1,high)
 
+# 先从数列中取出一个数作为基准数。
+
+# 分区过程，将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。
+
+# 再对左右区间重复第二步，直到各区间只有一个数
+
 if __name__ == '__main__':
-    array = [8,10,9,6,4,16,5,13,26,18,2,45,34,23,1,7,3]
-    print (array)
-    quick_sort(array,0,len(array)-1)
-    print (array)
+    array1 = [8,10,9,6,11,4,14]
+    print (array1)
+    quick_sort(array1,0,len(array1)-1)
+    print (array1)
+    # print (quicksort(array1))
