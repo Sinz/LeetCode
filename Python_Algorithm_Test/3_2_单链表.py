@@ -1,5 +1,14 @@
-# 单链表的实现
+
+class SingleNode(object):
+    """单链表的结点"""
+    def __init__(self,item):
+        # _item存放数据元素
+        self.item = item
+        # _next是下一个节点的标识
+        self.next = None
+
 class SingleLinkList(object):
+    """单链表的实现"""
     def __init__(self):
         self._head = None
         # self.item = item
@@ -12,14 +21,14 @@ class SingleLinkList(object):
         count = 0
         while cur != None:
             count += 1
-            cur = cur._next
+            cur = cur.next
         return count
     
     def travel(self): # 遍历链表
         cur = self._head
         while cur != None:
-            print (cur.elem,end='')
-            cur = cur._next
+            print (cur.item,end='')
+            cur = cur.next
         print("\n")
 
     def add(self,item): # 头部添加元素
