@@ -1,5 +1,11 @@
 package com.company;
 
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /*给定一个字符串，请你找出其中不含有重复字符的?最长子串?的长度。
 
 示例?1:
@@ -27,6 +33,26 @@ Sliding Window
 👍 4161
 👎 0*/
 public class LeetCode_3 {
+    public int lengthOfLongestSubstring(String s) {
 
+        int len = s.length();
+        Map map = new HashMap<Character,Integer>();
 
+        for (int i = 0; i < len; i++) {
+
+            char chr = s.charAt(i);
+            if (!map.containsKey(chr)) {
+                map.put(i, s.substring(i, 1));
+            }
+        }
+
+        return map.size();
+
+    }
+
+    @Test
+    public void test(){
+        int size = lengthOfLongestSubstring("String");
+        System.out.println(size);
+    }
 }
