@@ -2,9 +2,9 @@
 class SingleNode(object):
     """单链表的结点"""
     def __init__(self,item):
-        # _item存放数据元素
-        self.item = item
-        # _next是下一个节点的标识
+        # item存放数据元素
+        self.elem = item
+        # next是下一个节点的标识
         self.next = None
 
 class SingleLinkList(object):
@@ -27,13 +27,74 @@ class SingleLinkList(object):
     def travel(self): # 遍历链表
         cur = self._head
         while cur != None:
-            print (cur.item,end='')
+            print (cur.elem,end='')
             cur = cur.next
         print("\n")
 
-    def add(self,item): # 头部添加元素
-        node = SingleNode(item)
-        node.next = self._head
-        self._head = node
+    def add(self,item):  # 头部添加元素
+        node = SingleNode(item) # 先创建一个保存item的节点
+        node.next = self._head # 将新节点的链接域next 指向头结点，即_head 
+        self._head = node # 将链表的头—_head 指向新节点
 
+    def append(self,item): # 尾部添加元素
+        node = SingleNode(item) 
+        if self.is_empty():  # 先判断链表是否为空，若是空链表，则将_head指向新节点
+            self._head = node
+        else: # 若不为空，则找到尾部，将尾节点的next指向新节点
+            cur = self._head
+            while cur.next != None:
+                cur = cur.next 
+            cur.next = node
 
+    def insert(self,pos,item): # 指定位置添加元素
+        if pos <= 0: # 若指定位置pos为首/尾，曾执行 头部/尾部插入
+            self.add(item)
+        elif pos > (self.length()-1):
+            self.append(item)
+
+        else:
+            node = SingleNode(item) 
+            count = 0 
+            pre = self._head # pre为指定位置前一个位置，初始为头结点开始移动到指定位置
+            while count < (pos -1):
+                count += 1
+                pre = pre.next 
+            node.next = pre.next # 先将新节点node 的next 指向插入位置的节点
+            pre.next = node  # 将插入位置的前一节点的next 指向新节点
+            
+
+    def remove(self,item): #删除节点
+        cur = self._head
+        pre = None
+        while cur != None:
+            if cur.elem == item:
+                if not pre: # 查找指定元素，如果第一个就是删除的节点，将头指针指向头节点的后一个节点
+                    self._head = cur.next 
+                else:
+                    pre.next = cur.next # 将删除位置前的一个节点的next 指向产出位置的后一个节点
+                break
+            else: # 继续按链表后移节点
+                pre = cur  
+                cur = cur.next 
+
+    def search(self,item): # 链表查找节点是否存在
+        cur = self._head
+        while cur != None:
+            if cur.elem == item:
+                return True
+            cur = cur.next
+        return False
+
+if __name__ == "__main__":
+    ll = SingleLinkList()
+    ll.add(1)
+    ll.add(2)
+    ll.append(3)
+    ll.insert(2, 4)
+    print ("length:",ll.length())
+    ll.travel()
+    print (ll.search(3))
+    print (ll.search(5))
+    ll.remove(1)
+    print ("length:",ll.length())
+    ll.travel()
