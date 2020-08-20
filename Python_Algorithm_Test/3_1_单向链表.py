@@ -1,6 +1,6 @@
 
 class SingleNode(object):
-    """单链表的结点"""
+    """链表的结点"""
     def __init__(self,item):
         # item存放数据元素
         self.elem = item
@@ -8,7 +8,18 @@ class SingleNode(object):
         self.next = None
 
 class SingleLinkList(object):
-    """单链表的实现"""
+    """单向链表的实现
+    
+    is_empty() 判断链表是否为空
+    length() 返回链表的长度
+    travel() 遍历
+    add(item) 在头部添加一个节点
+    append(item) 在尾部添加一个节点
+    insert(pos, item) 在指定位置pos添加节点
+    remove(item) 删除一个节点
+    search(item) 查找节点是否存在
+
+    """
     def __init__(self):
         self._head = None
         # self.item = item
