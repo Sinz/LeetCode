@@ -86,13 +86,51 @@ class SinCycLinkedlist(object):
             node.next = cur.next
             cur.next = node
           
-    def remove(self,item): # 删除节点
+    def remove(self,item): #删除节点
         if self.is_empty():
-            return
+                return
         cur = self._head
         pre = None
-
-
+         # 若头节点的元素就是要查找的元素item
+        if cur.item == item:
+            # 如果链表不止一个节点
+            if cur.next != self._head:
+                # 先找到尾节点，将尾节点的next指向第二个节点
+                while cur.next != self._head:
+                    cur = cur.next
+                # cur指向了尾节点
+                cur.next = self._head.next
+                self._head = self._head.next
+            else:
+                # 链表只有一个节点
+                self._head = None
+        else:
+            pre = self._head
+            # 第一个节点不是要删除的
+            while cur.next != self._head:
+                # 找到了要删除的元素
+                if cur.item == item:
+                    # 删除
+                    pre.next = cur.next
+                    return
+                else:
+                    pre = cur
+                    cur = cur.next
+            # cur 指向尾节点
+            if cur.item == item:
+                # 尾部删除
+                pre.next = cur.next
             
+    def search(self,item): # 链表查找节点是否存在 
+        cur = self._head
+        if self.is_empty():
+            return False
+        while cur.next != self._head:
+            if cur.elem == item:
+                return True
+            cur = cur.next
+        if cur.elem == item:
+            return True
+        return False
 
 
