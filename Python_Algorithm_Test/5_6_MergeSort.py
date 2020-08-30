@@ -6,6 +6,7 @@ def merge_sort(alist):
     left = merge_sort(alist[:num])
     right = merge_sort(alist[num:])
     # 合并
+    print (left,right)
     return merge(left,right)
 
 def merge(left, right):
@@ -26,5 +27,6 @@ def merge(left, right):
 
 if __name__ == '__main__':
     alist = [54,26,93,17,77,31,44,55,20]
+    print(alist)
     sorted_alist = merge_sort(alist)
     print(sorted_alist)
