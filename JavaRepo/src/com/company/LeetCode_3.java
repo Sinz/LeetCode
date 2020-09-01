@@ -33,26 +33,24 @@ Sliding Window
 👍 4161
 👎 0*/
 public class LeetCode_3 {
+
     public int lengthOfLongestSubstring(String s) {
-
-        int len = s.length();
-        Map map = new HashMap<Character,Integer>();
-
-        for (int i = 0; i < len; i++) {
-
-            char chr = s.charAt(i);
-            if (!map.containsKey(chr)) {
-                map.put(i, s.substring(i, 1));
+        int n = s.length(), ans = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int end = 0, start = 0; end < n; end++) {
+            char alpha = s.charAt(end);
+            if (map.containsKey(alpha)) {
+                start = Math.max(map.get(alpha), start);
             }
+            ans = Math.max(ans, end - start + 1);
+            map.put(s.charAt(end), end + 1);
         }
-
-        return map.size();
-
+        return ans;
     }
-
     @Test
     public void test(){
-        int size = lengthOfLongestSubstring("String");
-        System.out.println(size);
+        int len = lengthOfLongestSubstring("stringi");
+        System.out.println(len);
     }
+
 }
