@@ -6,7 +6,7 @@ def merge_sort(alist):
     left = merge_sort(alist[:num])
     right = merge_sort(alist[num:])
     # 合并
-    print (left,right)
+    # print (left,right)
     return merge(left,right)
 
 def merge(left, right):
@@ -21,8 +21,10 @@ def merge(left, right):
         else:
             result.append(right[r])
             r += 1
-    result += left[l:]
+    result += left[l:] # 当l 或 r 到顶时补全另一组剩余
     result += right[r:]
+
+    print (result)
     return result
 
 if __name__ == '__main__':
