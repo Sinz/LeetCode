@@ -16,9 +16,29 @@ Related Topics
 动态规划
 */
 
+import com.sun.xml.internal.fastinfoset.util.CharArray;
+
 public class LeetCode_5_LongestPalindrome {
     public String longestPalindrome(String s) {
+        int start = 0;
+        int lenth = 0;
+        for (int cur = 0; cur < s.length(); cur++) {
+            int maxLen = Math.max(getlen(s, cur, cur), getlen(s, cur, cur + 1));
+            if (maxLen > lenth) {
+                lenth = maxLen;
+                start = cur - (lenth - 1) / 2;
+            }
+        }
 
-        return null;
+        return  s.substring(start , start+lenth);
+
+    }
+
+    public int getlen(String s,int l , int r){
+        while (l > 0 && r < s.length() &&  s.charAt(l) == s.charAt(r) ){
+            --l;
+            ++r;
+        }
+        return l - r -1 ;
     }
 }
