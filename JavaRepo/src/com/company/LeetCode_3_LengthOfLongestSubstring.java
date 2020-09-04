@@ -32,7 +32,7 @@ Sliding Window
 \n
 👍 4161
 👎 0*/
-public class LeetCode_3 {
+public class LeetCode_3_LengthOfLongestSubstring {
 
     public int lengthOfLongestSubstring(String s) {
         int n = s.length(), ans = 0;

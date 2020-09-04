@@ -21,7 +21,7 @@ import org.junit.Test;
  * @Author
  * @Date
  */
-public class LeetCode_2 {
+public class LeetCode_2_AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         // 1. 判断是否为0
