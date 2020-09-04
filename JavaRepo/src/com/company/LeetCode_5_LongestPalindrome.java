@@ -16,7 +16,6 @@ Related Topics
 动态规划
 */
 
-import com.sun.xml.internal.fastinfoset.util.CharArray;
 
 public class LeetCode_5_LongestPalindrome {
     public String longestPalindrome(String s) {
